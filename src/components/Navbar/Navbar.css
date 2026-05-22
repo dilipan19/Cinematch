@@ -98,12 +98,143 @@
   border: 1px solid transparent;
 }
 
+/* Hamburger — mobile only */
+.navbar-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.menu-icon {
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.menu-icon::before {
+  top: -7px;
+}
+
+.menu-icon::after {
+  top: 7px;
+}
+
+.menu-icon.open {
+  background: transparent;
+}
+
+.menu-icon.open::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu-icon.open::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.navbar-mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 80px 0 0 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.navbar-mobile-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navbar-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  flex-direction: column;
+  gap: 0;
+  padding: 0.5rem 0 1rem;
+  background: rgba(10, 10, 15, 0.98);
+  border-bottom: 1px solid var(--card-border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.navbar-mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-link--mobile {
+  display: block;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.nav-link--mobile.active::after {
+  display: none;
+}
+
+.nav-link--mobile.active {
+  color: var(--accent-color);
+  background: var(--accent-soft);
+}
+
 @media (max-width: 768px) {
   .navbar-container {
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
-  .navbar-links {
-    display: none; /* Hide on mobile for simplicity in this demo */
+
+  .navbar-links--desktop {
+    display: none;
+  }
+
+  .navbar-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-mobile-overlay,
+  .navbar-mobile-menu {
+    display: flex;
+  }
+
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+
+  .navbar-actions {
+    gap: 0.75rem;
   }
 }
 
