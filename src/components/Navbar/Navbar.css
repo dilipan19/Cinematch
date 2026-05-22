@@ -1,0 +1,208 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 100;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+  background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+}
+
+.navbar.scrolled {
+  background-color: rgba(10, 10, 15, 0.92);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 1.5rem 0 0.5rem; /* reduced left padding */
+  width: 100%;
+  max-width: 100%;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  letter-spacing: 2px;
+  margin-right: auto;
+  padding-left: 0;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link.active {
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.icon-btn {
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: var(--accent-color);
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png');
+  background-size: cover;
+  border: 1px solid transparent;
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 2rem;
+  }
+  .navbar-links {
+    display: none; /* Hide on mobile for simplicity in this demo */
+  }
+}
+
+.profile-wrapper {
+  position: relative;
+}
+
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: var(--accent-color);
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+  border-color: white;
+}
+
+/* Profile modal */
+.profile-modal {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 280px;
+  background: rgba(15, 15, 20, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1rem;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+  animation: profileFade 0.2s ease;
+}
+
+.profile-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.profile-avatar.large {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+}
+
+.profile-modal-header h4 {
+  margin: 0;
+  color: white;
+  font-size: 1rem;
+}
+
+.profile-modal-header p {
+  margin: 4px 0 0;
+  color: #b8b8b8;
+  font-size: 0.85rem;
+}
+
+.profile-info {
+  margin-bottom: 1rem;
+}
+
+.profile-info p {
+  color: #d1d1d1;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent-color);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  opacity: 0.9;
+}
+
+@keyframes profileFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

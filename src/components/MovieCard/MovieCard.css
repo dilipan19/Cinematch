@@ -1,0 +1,111 @@
+.movie-card {
+  flex: 0 0 calc(20% - 10px); /* 5 items per row ideally */
+  min-width: 250px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--card-bg);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+  transform-origin: center center;
+}
+
+.movie-card:hover,
+.movie-card:focus {
+  transform: scale(1.1);
+  z-index: 20;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.movie-card-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: var(--accent-color);
+  z-index: 5;
+}
+
+.movie-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--transition-normal);
+}
+
+.movie-card:hover .movie-card-img,
+.movie-card:focus .movie-card-img {
+  opacity: 0.6;
+}
+
+.movie-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(0deg, rgba(10,10,15,1) 0%, rgba(10,10,15,0) 100%);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.movie-card-info.visible,
+.movie-card:focus .movie-card-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.movie-card-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: #fbbf24; /* Star gold */
+  font-weight: 600;
+}
+
+.type {
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+  .movie-card {
+    flex: 0 0 calc(25% - 10px);
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-card {
+    flex: 0 0 calc(33.333% - 10px);
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-card {
+    flex: 0 0 calc(50% - 10px);
+    min-width: 140px;
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "com.cinematch.app",
+  "version": "1.0.0",
+  "vendor": "CineMatch",
+  "type": "web",
+  "main": "index.html",
+  "title": "CineMatch",
+  "icon": "icon.png",
+  "largeIcon": "icon.png",
+  "bgImage": "bg.png",
+  "iconColor": "#e50914",
+  "disableBackHistoryAPI": false,
+  "handlesRelaunch": true,
+  "supportTouchMode": "full",
+  "requiredMemory": 80,
+  "resolution": "1920x1080",
+  "splashBackground": "#0a0a0f",
+  "deeplinkingParams": "{\"contentId\":\"\"}"
+}

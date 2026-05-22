@@ -1,0 +1,23 @@
+.platform-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+}
+
+.platform-badge--tv {
+  color: var(--text-primary);
+  border-color: rgba(229, 9, 20, 0.4);
+  background: var(--accent-soft);
+}
+
+@media (max-width: 900px) {
+  .platform-badge {
+    display: none;
+  }
+}
