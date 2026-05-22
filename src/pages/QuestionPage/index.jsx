@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import Navbar from '../../components/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 function QuestionPage() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     genre: '',
     mood: '',
@@ -92,77 +91,50 @@ function QuestionPage() {
     navigate('/recommendation-page', { state: form });
   };
 
-  // Full page style
-  const fullPageStyle = {
-    minHeight: '100vh',
-    width: '100vw',
-    background: '#f7f7fa',
-    paddingTop: '5.5rem', // for fixed navbar
-    display: 'flex',
-    flexDirection: 'column',
-  };
-
-  const centerFormWrapper = {
-    flex: 1,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
-
-  const formCardStyle = {
-    width: '100%',
-    maxWidth: 480,
-    padding: '2.5rem 2rem',
-    background: '#fff',
-    borderRadius: 16,
-    boxShadow: '0 2px 16px #0002',
-  };
-
   return (
-    <div style={fullPageStyle}>
-      <Navbar />
-      <div style={centerFormWrapper}>
-        <div style={formCardStyle}>
+    <div className="page-question">
+      <div className="page-question__inner">
+        <div className="question-card tv-focus-element">
           <h3 className="mb-4 text-center">What kind of movie are you in the mood for?</h3>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="genre" className="form-label fw-bold">Genre</label>
-              <select className="form-select" id="genre" name="genre" value={form.genre} onChange={handleChange} required>
+              <select className="form-select tv-focus-element" id="genre" name="genre" value={form.genre} onChange={handleChange} required>
                 {genres.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
               </select>
             </div>
             <div className="mb-3">
               <label htmlFor="mood" className="form-label fw-bold">Mood</label>
-              <select className="form-select" id="mood" name="mood" value={form.mood} onChange={handleChange} required>
+              <select className="form-select tv-focus-element" id="mood" name="mood" value={form.mood} onChange={handleChange} required>
                 {moods.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
               </select>
             </div>
             <div className="mb-3">
               <label htmlFor="language" className="form-label fw-bold">Language</label>
-              <select className="form-select" id="language" name="language" value={form.language} onChange={handleChange} required>
+              <select className="form-select tv-focus-element" id="language" name="language" value={form.language} onChange={handleChange} required>
                 {languages.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
               </select>
             </div>
             <div className="mb-3">
               <label htmlFor="duration" className="form-label fw-bold">Movie Length</label>
-              <select className="form-select" id="duration" name="duration" value={form.duration} onChange={handleChange} required>
+              <select className="form-select tv-focus-element" id="duration" name="duration" value={form.duration} onChange={handleChange} required>
                 {durations.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
               </select>
             </div>
             <div className="mb-3">
               <label htmlFor="release" className="form-label fw-bold">Release Date</label>
-              <select className="form-select" id="release" name="release" value={form.release} onChange={handleChange} required>
+              <select className="form-select tv-focus-element" id="release" name="release" value={form.release} onChange={handleChange} required>
                 {releases.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
               </select>
             </div>
             <div className="mb-4">
               <label htmlFor="platform" className="form-label fw-bold">Streaming Platform</label>
-              <select className="form-select" id="platform" name="platform" value={form.platform} onChange={handleChange} required>
+              <select className="form-select tv-focus-element" id="platform" name="platform" value={form.platform} onChange={handleChange} required>
                 {platforms.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
               </select>
             </div>
             <div className="d-grid">
-              <button className="btn btn-danger btn-lg" type="submit" >Find Movie</button>
+              <button className="btn btn-danger btn-lg tv-focus-element" type="submit">Find Movie</button>
             </div>
           </form>
         </div>

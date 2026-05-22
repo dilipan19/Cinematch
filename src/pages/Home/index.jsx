@@ -1,19 +1,34 @@
-import React from 'react'
-import Navbar from '../../components/Navbar'
-import bannerImg from '../../assets/bannerImg1.svg'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTrending, fetchTopRated, fetchActionMovies } from '../../store/tmdbSlice';
+import HeroBanner from '../../components/HeroBanner';
+import Carousel from '../../components/Carousel';
+import ContinueWatching from '../../components/ContinueWatching';
 
-function Home () {
+const Home = () => {
+  const dispatch = useDispatch();
+  const { trending, topRated, actionMovies, status } = useSelector((state) => state.tmdb);
+
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchTrending());
+      dispatch(fetchTopRated());
+      dispatch(fetchActionMovies());
+    }
+  }, [status, dispatch]);
+
   return (
-    <>
-      <Navbar />
-      <div className=" first container-fluid mt-3 p-5" >
-      <h3> Find the film that fits your mood.</h3>
-      <label>
-        Smart picks. Perfect vibes. Endless stories — matched just for you.
-      </label>
+    <div className="home-page">
+      <HeroBanner movie={trending.length > 0 ? trending[0] : null} />
+      
+      <div className="carousels-section">
+        <ContinueWatching />
+        <Carousel title="Trending Now" movies={trending.slice(1)} />
+        <Carousel title="Top Rated Series" movies={topRated} />
+        <Carousel title="Action Blockbusters" movies={actionMovies} />
       </div>
-    </>
+    </div>
   );
-}
+};
 
-export default Home
+export default Home;

@@ -1,0 +1,99 @@
+.carousel-container {
+  padding: 0 4rem;
+  margin-top: -3rem; /* Overlap hero banner slightly */
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 5;
+}
+
+/* Adjust top margin for subsequent carousels */
+.carousel-container + .carousel-container {
+  margin-top: 0;
+}
+
+.carousel-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control:hover,
+.carousel-control:focus,
+.carousel-wrapper:hover .carousel-control {
+  opacity: 1;
+}
+
+.carousel-control.left {
+  left: -4rem;
+  background: linear-gradient(90deg, rgba(10,10,15,0.9) 0%, rgba(10,10,15,0) 100%);
+}
+
+.carousel-control.right {
+  right: -4rem;
+  background: linear-gradient(-90deg, rgba(10,10,15,0.9) 0%, rgba(10,10,15,0) 100%);
+}
+
+.carousel-control svg {
+  width: 40px;
+  height: 40px;
+  transition: transform var(--transition-fast);
+}
+
+.carousel-control:hover svg,
+.carousel-control:focus svg {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    padding: 0 1rem;
+  }
+  .carousel-control {
+    display: none;
+  }
+}
+
+.carousel-row::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-row {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

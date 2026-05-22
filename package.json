@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:smart-tv": "vite build",
+    "pack:tizen": "node scripts/pack-tizen.js",
+    "pack:webos": "node scripts/pack-webos.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
