@@ -43,7 +43,7 @@ useEffect(() => {
     <nav className={`navbar ${isScrolled ? 'scrolled glass' : ''}`}>
       <div className="navbar-container">
         <Link to="/" className="navbar-brand tv-focus-element">
-          CINEMATCH
+          STREAM
         </Link>
         <div className="navbar-links">
           <NavLink to="/" end className={({ isActive }) => `nav-link tv-focus-element${isActive ? ' active' : ''}`}>Home</NavLink>

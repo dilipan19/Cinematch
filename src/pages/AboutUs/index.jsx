@@ -5,11 +5,11 @@ function AboutUs() {
     <div className="page-content">
       <h3 className="page-heading">About Us</h3>
       <p>
-        Welcome to <strong className="page-accent">CineMatch</strong> – your go-to destination for smarter movie recommendations.
+        Welcome to <strong className="page-accent">STREAM</strong> – your go-to destination for smarter movie recommendations.
       </p>
 
       <p>
-        CineMatch was born out of a simple idea: helping people spend less time searching and more time enjoying great
+        STREAM was born out of a simple idea: helping people spend less time searching and more time enjoying great
         films. With thousands of movies released every year, finding something that truly fits your taste can feel
         overwhelming. That’s where we come in.
       </p>

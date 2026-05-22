@@ -7,7 +7,7 @@ function HowItWorks() {
 
       <p>
         Finding your next favorite movie doesn’t have to be a guessing game. At{' '}
-        <strong className="page-accent">CineMatch</strong>, we make movie discovery
+        <strong className="page-accent">STREAM</strong>, we make movie discovery
         simple, fast, and personal. Here’s how it works:
       </p>
 
